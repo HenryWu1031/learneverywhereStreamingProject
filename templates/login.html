@@ -1,0 +1,26 @@
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <script src="../static/libs/js/jquery/2.0.0/jquery.min.js"></script>
+    <link href="../static/libs/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/libs/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <link href="https://vjs.zencdn.net/7.0.3/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.0.3/video.js"></script>
+</head>
+
+<div class="loginPageDiv">
+    <form action="/login" method="POST">
+    <div class="usernameInputDiv">
+        <span>用户名称</span>
+        <input class="username" name="username">
+    </div>
+    <div class="userPasswordInputDiv">
+        <span>密码</span>
+        <input class="userpassword" name="userpassword" type="password">
+    </div>
+    <div class="submitButton">
+        <button class="btn btn-default">登录</button>
+        <a href="register.html">注册</a>
+    </div>
+    </form>
+</div>

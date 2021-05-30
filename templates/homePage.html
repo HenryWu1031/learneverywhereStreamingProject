@@ -1,0 +1,179 @@
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="../static/libs/js/jquery/2.0.0/jquery.min.js"></script>
+    <link href="../static/libs/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <script src="../static/libs/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <link href="https://vjs.zencdn.net/7.0.3/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/7.0.3/video.js"></script>
+</head>
+
+<style>
+    div.navigatorDiv{
+        background-color: #e3dada;
+    }
+    div.navigatorDiv{
+        height: 40px;
+        line-height: 40px;
+    }
+    img.logoIcon{
+        width: 40px;
+        height: 37px;
+    }
+    div.firstNavigatorWordDiv{
+        float: left;
+    }
+    div.navigatorWordDiv{
+        float: left;
+        margin-left: 95px;
+    }
+    a.indexWordHref{
+        margin-left: 60px;
+    }
+    input.searchBarTextBox{
+        height: 25px;
+        margin-left: 200px;
+    }
+    img.navigatorSmallIcon{
+        width: 20px;
+        height: 20px;
+    }
+    div.navigatorSearchBarDiv{
+        float: left;
+    }
+    div.navigatorWordRightDiv{
+        float:right;
+        margin-right: 40px;
+    }
+    div.leftOne{
+        margin-right: 70px;
+    }
+    a.navigatorHref{
+        font-size: 16px;
+        font-family: Arial;
+        color: #242323;
+    }
+    a.navigatorHref:hover{
+        text-decoration: none;
+        color: #d40c0c;
+    }
+    div.bigStreamScreenDiv{
+        width: 100%;
+        height: 520px;
+    }
+    div.bigSteamScreenVideoDiv{
+        display: block;
+        width: 1250px;
+        clear: both;
+        margin: auto;
+    }
+    div.homeCategoryPage{
+        width: 100%;
+        height: 200px;
+    }
+    div.smallCategory{
+        width: 19.8%;
+        height: 180px;
+        float: left;
+        text-align: center;
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #242323;
+    }
+    div.copyRightDiv{
+        text-align: center;
+        background-color: black;
+    }
+    div.copyRightWordDiv{
+        color: white;
+        font-size: 15px;
+    }
+    
+</style>
+
+<div class="HomePageDiv">
+    <!-- 导航栏 -->
+    <div class="navigatorDiv">
+        <div class="firstNavigatorWordDiv">
+            <img src=../static/app/image/logo.png class="logoIcon">
+            {% try %}
+            {% if usrName %}
+                <a href={{strAdd("homePageusername=",usrName)}} class="indexWordHref navigatorHref"><span>首页</span></a>
+            {% end %}
+            {% except %}
+            <a href="homePage.html" class="indexWordHref navigatorHref"><span>首页</span></a>
+            {% end %}
+            <!-- <a href="homePage.html" class="indexWordHref navigatorHref"><span>首页</span></a> -->
+            
+        </div>
+        <div class="navigatorWordDiv">
+            {% try %}
+            {% if usrName %}
+                <a href={{strAdd("allSteamRoomPageusername=",usrName)}} class="navigatorHref"><span>直播</span></a>
+            {% end %}
+            {% except %}
+            <a href="allSteamRoomPage.html" class="navigatorHref"><span>直播</span></a>
+            {% end %}
+        </div>
+        <div class="navigatorWordDiv"><a href="homePage.html" class="navigatorHref"><span>分类</span></a></div>
+        <div class="navigatorSearchBarDiv">
+            <form action="post">
+                <input name="searchBarTextBox" class="searchBarTextBox" placeholder="why">
+                <button class="btn btn-danger searchButton" type="submit">搜索</button>
+            </form>
+        </div>
+        <div class="navigatorWordRightDiv">
+            <img src="../static/app/image/loginLogo.png" class="navigatorSmallIcon">
+            <a href="login.html" class="navigatorHref">
+                {% try %}
+                {% if usrName %}
+                    <span>{{usrName}}</span>
+                {% end %}
+                {% except %}
+                    <span>登录</span>
+                {% end %}
+            </a>
+            <span class="separateIcon">|</span>
+            <a href="register.html" class="navigatorHref"><span>注册</span></a>
+        </div>
+        <div class="navigatorWordRightDiv leftOne">
+            <img src="../static/app/image/historyLogo.png" class="navigatorSmallIcon">
+            <a href="#nowhere" class="navigatorHref"><span>历史</span></a>
+        </div>
+    </div>
+    <!-- 大的直播页面，其中的内容是我们目前所有的直播间中选择一个的内容 -->
+    <div class="bigStreamScreenDiv">
+        <div class="bigSteamScreenVideoDiv">
+            <video id="myVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1250px" height="500px"  data-setup='{}'>
+            <source id="source" type="application/x-mpegURL" src="http://192.168.20.128:8000/hls1/test.m3u8" >
+            </video>
+        </div>
+    </div>
+    <!-- 分类的模块 -->
+    <div class="homeCategoryPage">      
+        <a href="#nowhere"><div class="smallCategory">
+            <div class="smallDesc">理科天地</div>
+            <img src="" class="smallDescImg">
+        </div></a>
+        <a href="#nowhere"><div class="smallCategory">
+            <div class="smallDesc">咬文嚼字</div>
+            <img src="" class="smallDescImg">
+        </div></a>
+        <a href="#nowhere"><div class="smallCategory">
+            <div class="smallDesc">社科知识</div>
+            <img src="" class="smallDescImg">
+        </div></a>
+        <a href="#nowhere"><div class="smallCategory">
+            <div class="smallDesc">工科之地</div>
+            <img src="" class="smallDescImg">
+        </div></a>
+        <a href="#nowhere"><div class="smallCategory">
+            <div class="smallDesc">百科全书</div>
+            <img src="" class="smallDescImg">
+        </div></a>
+    </div>
+    <!-- 版权的模块 -->
+    <div class="copyRightDiv">
+        <div class="copyRightWordDiv">©版权所有：1827406023吴航宇</div>
+    </div>
+</div>
