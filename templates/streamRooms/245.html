@@ -176,10 +176,35 @@
     <div class="navigatorDiv">
         <div class="firstNavigatorWordDiv">
             <img src=../static/app/image/logo.png class="logoIcon">
-            <a href="homePage.html" class="indexWordHref navigatorHref"><span>首页</span></a>
+            {% try %}
+            {% if usrName %}
+                {% set first="../homePageusername=" %}
+                <a href={{strAdd(first,usrName)}} class="indexWordHref navigatorHref"><span>首页</span></a>
+            {% end %}
+            {% except %}
+            <a href="../homePage.html" class="indexWordHref navigatorHref"><span>首页</span></a>
+            {% end %}
+
         </div>
-        <div class="navigatorWordDiv"><a href="homePage.html" class="navigatorHref"><span>直播</span></a></div>
-        <div class="navigatorWordDiv"><a href="homePage.html" class="navigatorHref"><span>分类</span></a></div>
+        <div class="navigatorWordDiv">
+        {% try %}
+            {% if usrName %}
+                {% set first="../allSteamRoomPageusername=" %}
+                <a href={{strAdd(first,usrName)}} class="navigatorHref"><span>直播</span></a>
+            {% end %}
+            {% except %}
+            <a href="../allSteamRoomPage.html" class="navigatorHref"><span>直播</span></a>
+            {% end %}
+        </div>
+        <div class="navigatorWordDiv"><a href="homePage.html" class="navigatorHref">
+        {% try %}
+            {% if usrName %}
+                <a href={{strAdd("../allCategoryPageusername=",usrName)}} class="navigatorHref"><span>分类</span></a>
+            {% end %}
+            {% except %}
+                <a href="../allCategoryPage.html" class="navigatorHref"><span>分类</span></a>
+            {% end %}
+        </div>
         <div class="navigatorSearchBarDiv">
             <form action="post">
                 <input name="searchBarTextBox" class="searchBarTextBox" placeholder="why">
@@ -188,9 +213,17 @@
         </div>
         <div class="navigatorWordRightDiv">
             <img src="../static/app/image/loginLogo.png" class="navigatorSmallIcon">
-            <a href="#nowhere" class="navigatorHref"><span>登录</span></a>
+            <a href="../login.html" class="navigatorHref">
+                {% try %}
+                {% if usrName %}
+                    <span>{{usrName}}</span>
+                {% end %}
+                {% except %}
+                    <span>登录</span>
+                {% end %}
+            </a>
             <span class="separateIcon">|</span>
-            <a href="#nowhere" class="navigatorHref"><span>注册</span></a>
+            <a href="../register.html" class="navigatorHref"><span>注册</span></a>
         </div>
         <div class="navigatorWordRightDiv leftOne">
             <img src="../static/app/image/historyLogo.png" class="navigatorSmallIcon">
@@ -204,23 +237,139 @@
             <a href="#nowhere"><span>我的关注</span></a>
         </div>
         <div class="leftPartWordDiv">
-            <a href="#nowhere" class="allStreamColor"><span>全部直播</span></a>
+            {% try %}
+            {% if usrName %}
+                <a href={{strAdd("../allSteamRoomPageusername=",usrName)}} class="allStreamColor"><span>全部直播</span></a>
+            {% end %}
+            {% except %}
+                <a href="../allSteamRoomPage.html" class="allStreamColor"><span>全部直播</span></a>
+            {% end %}
         </div>
         <div class="leftPartWordDiv">
             <a href="#nowhere"><span>推荐直播</span></a>
         </div>
         <div class="leftPartManyLinksDiv">
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>高等数学</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>历史趣事</span></a></div>
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>法学专栏</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>Java开发</span></a></div>
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>建筑学科</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>食品科学</span></a></div>
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>音乐艺术</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>语言学科</span></a></div>
+            <div class="simpleLinkDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="7" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>高等数学</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="7" %}
+                <a href={{strAdd(roomURL,cid)}}><span>高等数学</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="8" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>历史趣事</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="8" %}
+                <a href={{strAdd(roomURL,cid)}}><span>历史趣事</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv"><a href="#nowhere">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="9" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>法学专栏</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="9" %}
+                <a href={{strAdd(roomURL,cid)}}><span>法学专栏</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="1" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>Java开发</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="1" %}
+                <a href={{strAdd(roomURL,cid)}}><span>Java开发</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="10" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>建筑学科</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="10" %}
+                <a href={{strAdd(roomURL,cid)}}><span>建筑学科</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="11" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>食品科学</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="11" %}
+                <a href={{strAdd(roomURL,cid)}}><span>食品科学</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="12" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>音乐艺术</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="12" %}
+                <a href={{strAdd(roomURL,cid)}}><span>音乐艺术</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="13" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>语言学科</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="../categorySRPageCid=" %}
+                {% set cid="13" %}
+                <a href={{strAdd(roomURL,cid)}}><span>语言学科</span></a>
+                {% end %}
+            </div>
         </div>
         <div class="leftPartWordDiv">
-            <a href="#nowhere"><span>如何开启直播</span></a>
+            {% try %}
+            {% if usrName %}
+                <a href={{strAdd("../applyForStreamRoomusername=",usrName)}}><span>如何开启直播</span></a>
+            {% end %}
+            {% except %}
+                <a href="../login.html"><span>如何开启直播</span></a>
+            {% end %}
         </div>
         <div class="leftPartWordDiv">
             <a href="#nowhere"><span>随地学问题反馈</span></a>
@@ -238,7 +387,7 @@
             </div>
             <div class="streamRoomVideoDiv">
                 <video id="myVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="550px" height="420px"  data-setup='{}'>
-                    {% set one="http://192.168.0.108:8000/hls1/" %}
+                    {% set one="http://10.40.23.175:8000/hls1/" %}
                     {% set three=".m3u8" %}
                 <source id="source" type="application/x-mpegURL" src={{strAddThree(one,id,three)}} >
                 </video>
@@ -250,13 +399,16 @@
                 {% try %}
                 {% if usrName %}
                 <input id="checkIfLogin" hidden value={{usrName}}>
+                <input id="username" name="username" class="username" hidden value={{usrName}}>
                 {% end %}
                 {% except %}
                 <input id="checkIfLogin" hidden value="nologin">
+                <input id="username" name="username" class="username" hidden value="游客">
                 {% end %}
                 <div class="sendMessagePartDiv">
                     <textarea class="sendPartDiv" id="sendPartDiv" name="message"></textarea>
                     <input id="room" name="room" class="room" hidden value={{id}}>
+                    
                 </div>
             <button class="submitButton" onclick="send(this.form.message.value)">提交</button>
             </form>
@@ -270,10 +422,13 @@
         window.WebSocket=window.MozWebSocket;
     }
     if(window.WebSocket){
-        var firstURLpart="ws://192.168.0.109:8000/chat";
+        var firstURLpart="ws://10.40.21.121:8000/chat";
         var element=document.getElementById('room');
+        var element2=document.getElementById('username');
         var secondURLpart=element.value;
-        var finalURL=firstURLpart+secondURLpart;
+        var mid="username="
+        var thirdURLpart=element2.value;
+        var finalURL=firstURLpart+secondURLpart+mid+thirdURLpart;
         console.log(finalURL);
         socket=new WebSocket(finalURL);
         socket.onmessage=function(event){
@@ -292,15 +447,17 @@
         alert("Your browser does not support web socket!");
     }
     function send(message){
-        //var element=document.getElementById('checkIfLogin');
-        //var flag=element.value;
-        //if(flag=="nologin"){
-            //alert("您未登录！请先登录！");
-            //window.location.href="../login.html";
-        //}
+        var element=document.getElementById('username');
+        var flag=element.value;
+        if(flag=="游客"){
+            alert("您未登录！请先登录！");
+            window.location.href="../login.html";
+        }
         if(!window.WebSocket){return;}
         if(socket.readyState==WebSocket.OPEN){
             socket.send(message);
+            var element=document.getElementById('sendPartDiv');
+            element.value="";
         }else{
             alert('this socket is not opened!')
         }

@@ -16,8 +16,19 @@
     <form method="POST" action="applyForStreamRoom">
         直播间id(必须为数字)<input class="rid" name="rid"><br>
         直播间标题<input class="rtitle" name="rtitle"><br>
-        直播类别<input class="rcategory" name="rcategory"><br>
-        直播间图片id<input class="rimgid" name="rimgid"><br>
+        直播类别
+        <select class="rcategory" name="rcategory">
+            {% import category %}
+            {% for c in clist %}
+                <option value={{c.name}}>{{c.name}}</option>
+            {% end %}
+        </select><br>
+        直播间图片id
+        <select class="rimgid" name="rimgid">
+                <option value="1">1橙色</option>
+                <option value="2">2蓝色</option>
+                <option value="3">3咖啡色</option>
+        </select><br>
         直播人员名称<input class="ranchorname" name="ranchorname" value={{usrName}} readonly><br>
         <button type="submit">申请</button>
     </form>

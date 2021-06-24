@@ -22,6 +22,7 @@ class streamRoomDAO:
             onstream=row[5]
             streamroom1=streamRoom(id,title,category,anchorname,imgid,onstream)
             ans.append(streamroom1)
+        db.close()
         return ans
 
     def addOneStreamRoom(self,id,title,category,anchorname,imgid,onstream):
@@ -46,5 +47,24 @@ class streamRoomDAO:
         sr=streamRoom(data[0],data[1],data[2],data[3],data[4],data[5])
         return sr
                             
-    
+    def getStreamRoomsByCategory(self,name):
+        ans = []  # 存放最终结果的数组
+        db = pymysql.connect(host='localhost', user='root',
+                             passwd='123456', db='streamdb', charset='utf8')
+        cursor = db.cursor()
+        sql = "select * from streamroom where category='%s'" % (name)
+        cursor.execute(sql)
+        allTheData = cursor.fetchall()
+        for row in allTheData:
+            id = row[0]
+            title = row[1]
+            category = row[2]
+            anchorname = row[3]
+            imgid = row[4]
+            onstream = row[5]
+            streamroom1 = streamRoom(
+                id, title, category, anchorname, imgid, onstream)
+            ans.append(streamroom1)
+        db.close()
+        return ans
 

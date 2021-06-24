@@ -160,7 +160,15 @@
             <a href="allSteamRoomPage.html" class="navigatorHref"><span>直播</span></a>
             {% end %}
         </div>
-        <div class="navigatorWordDiv"><a href="homePage.html" class="navigatorHref"><span>分类</span></a></div>
+        <div class="navigatorWordDiv">
+            {% try %}
+            {% if usrName %}
+                <a href={{strAdd("allCategoryPageusername=",usrName)}} class="navigatorHref"><span>分类</span></a>
+            {% end %}
+            {% except %}
+                <a href="allCategoryPage.html" class="navigatorHref"><span>分类</span></a>
+            {% end %}
+        </div>
         <div class="navigatorSearchBarDiv">
             <form action="post">
                 <input name="searchBarTextBox" class="searchBarTextBox" placeholder="why">
@@ -169,7 +177,7 @@
         </div>
         <div class="navigatorWordRightDiv">
             <img src="../static/app/image/loginLogo.png" class="navigatorSmallIcon">
-            <a href="#nowhere" class="navigatorHref">
+            <a href="login.html" class="navigatorHref">
                 {% try %}
                 {% if usrName %}
                     <span>{{usrName}}</span>
@@ -193,20 +201,130 @@
             <a href="#nowhere"><span>我的关注</span></a>
         </div>
         <div class="leftPartWordDiv">
-            <a href="#nowhere" class="allStreamColor"><span>全部直播</span></a>
+            {% try %}
+            {% if usrName %}
+                <a href={{strAdd("allSteamRoomPageusername=",usrName)}} class="allStreamColor"><span>全部直播</span></a>
+            {% end %}
+            {% except %}
+                <a href="allSteamRoomPage.html" class="allStreamColor"><span>全部直播</span></a>
+            {% end %}
         </div>
         <div class="leftPartWordDiv">
             <a href="#nowhere"><span>推荐直播</span></a>
         </div>
         <div class="leftPartManyLinksDiv">
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>高等数学</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>历史趣事</span></a></div>
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>法学专栏</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>Java开发</span></a></div>
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>建筑学科</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>食品科学</span></a></div>
-            <div class="simpleLinkDiv"><a href="#nowhere"><span>音乐艺术</span></a></div>
-            <div class="simpleLinkDiv oddSimpleDiv"><a href="#nowhere"><span>语言学科</span></a></div>
+            <div class="simpleLinkDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="7" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>高等数学</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="7" %}
+                <a href={{strAdd(roomURL,cid)}}><span>高等数学</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="8" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>历史趣事</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="8" %}
+                <a href={{strAdd(roomURL,cid)}}><span>历史趣事</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv"><a href="#nowhere">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="9" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>法学专栏</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="9" %}
+                <a href={{strAdd(roomURL,cid)}}><span>法学专栏</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="1" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>Java开发</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="1" %}
+                <a href={{strAdd(roomURL,cid)}}><span>Java开发</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="10" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>建筑学科</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="10" %}
+                <a href={{strAdd(roomURL,cid)}}><span>建筑学科</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="11" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>食品科学</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="11" %}
+                <a href={{strAdd(roomURL,cid)}}><span>食品科学</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="12" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>音乐艺术</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="12" %}
+                <a href={{strAdd(roomURL,cid)}}><span>音乐艺术</span></a>
+                {% end %}
+            </div>
+            <div class="simpleLinkDiv oddSimpleDiv">
+                {% try %}
+                {% if usrName %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="13" %}
+                {% set beforeUserName="username=" %}
+                <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><span>语言学科</span></a>
+                {% end %}
+                {% except %}
+                {% set roomURL="categorySRPageCid=" %}
+                {% set cid="13" %}
+                <a href={{strAdd(roomURL,cid)}}><span>语言学科</span></a>
+                {% end %}
+            </div>
         </div>
         <div class="leftPartWordDiv">
             {% try %}
@@ -223,76 +341,42 @@
     </div>
     <!-- 右边部分 -->
     {% import streamRoom %}
-    <div class="rightAllStreamDiv">
-        {% for sr in rooms  %}
-        {% set roomURL="streamHomePage/id=" %}
-        {% set rid=sr.id %}
-        <a href={{strAdd(roomURL,rid)}}><div class="smallStreamWindow">
-            <img src="" class="streamWindowImg">
-            <div class="streamTitle"><span>{{sr.title}}</span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>{{sr.anchorname}}</span></div>
-                <div class="streamRoomCategory"><span>{{sr.category}}</span></div>
-            </div>
-        </div></a>
-        {% end %}
+    {% try %}
+    {% if usrName %}
+        <div class="rightAllStreamDiv">
+            {% for sr in rooms  %}
+            {% set roomURL="streamHomePage/id=" %}
+            {% set rid=sr.id %}
+            {% set pid=sr.imgid %}
+            {% set beforeUserName="username=" %}
+            <a href={{strAdd4(roomURL,rid,beforeUserName,usrName)}}><div class="smallStreamWindow">
+                <img src={{strAddThree("../static/app/image/",pid,".png")}} class="streamWindowImg">
+                <div class="streamTitle"><span>{{sr.title}}</span></div>
+                <div class="streamDesc">
+                    <div class="streamRoomUserName"><span>{{sr.anchorname}}</span></div>
+                    <div class="streamRoomCategory"><span>{{sr.category}}</span></div>
+                </div>
+            </div></a>
+            {% end %}
+        </div>
+    {% end %}
+    {% except %}
+        <div class="rightAllStreamDiv">
+            {% for sr in rooms  %}
+            {% set roomURL="streamHomePage/id=" %}
+            {% set rid=sr.id %}
+            <a href={{strAdd(roomURL,rid)}}><div class="smallStreamWindow">
+                <img src={{strAddThree("../static/app/image/",sr.imgid,".png")}} class="streamWindowImg">
+                <div class="streamTitle"><span>{{sr.title}}</span></div>
+                <div class="streamDesc">
+                    <div class="streamRoomUserName"><span>{{sr.anchorname}}</span></div>
+                    <div class="streamRoomCategory"><span>{{sr.category}}</span></div>
+                </div>
+            </div></a>
+            {% end %}
+        </div>
+    {% end %}
         <!-- <a href="streamHomePage.html"><div class="smallStreamWindow">
-            <img src="">
-            <div class="streamTitle"><span></span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>XXX</span></div>
-                <div class="streamRoomCategory"><span>XXXX</span></div>
-            </div>
-        </div></a>
-        <a href="streamHomePage.html"><div class="smallStreamWindow">
-            <img src="">
-            <div class="streamTitle"><span></span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>XXX</span></div>
-                <div class="streamRoomCategory"><span>XXXX</span></div>
-            </div>
-        </div></a>
-        <a href="streamHomePage.html"><div class="smallStreamWindow">
-            <img src="">
-            <div class="streamTitle"><span></span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>XXX</span></div>
-                <div class="streamRoomCategory"><span>XXXX</span></div>
-            </div>
-        </div></a>
-        <a href="streamHomePage.html"><div class="smallStreamWindow">
-            <img src="">
-            <div class="streamTitle"><span></span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>XXX</span></div>
-                <div class="streamRoomCategory"><span>XXXX</span></div>
-            </div>
-        </div></a>
-        <a href="streamHomePage.html"><div class="smallStreamWindow">
-            <img src="">
-            <div class="streamTitle"><span></span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>XXX</span></div>
-                <div class="streamRoomCategory"><span>XXXX</span></div>
-            </div>
-        </div></a>
-        <a href="streamHomePage.html"><div class="smallStreamWindow">
-            <img src="">
-            <div class="streamTitle"><span></span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>XXX</span></div>
-                <div class="streamRoomCategory"><span>XXXX</span></div>
-            </div>
-        </div></a>
-        <a href="streamHomePage.html"><div class="smallStreamWindow">
-            <img src="">
-            <div class="streamTitle"><span></span></div>
-            <div class="streamDesc">
-                <div class="streamRoomUserName"><span>XXX</span></div>
-                <div class="streamRoomCategory"><span>XXXX</span></div>
-            </div>
-        </div></a>
-        <a href="streamHomePage.html"><div class="smallStreamWindow">
             <img src="">
             <div class="streamTitle"><span></span></div>
             <div class="streamDesc">
@@ -309,6 +393,21 @@
             </div>
         </div></a> -->
     </div>
+    
+    <!-- <div class="rightAllStreamDiv">
+        {% for sr in rooms  %}
+        {% set roomURL="streamHomePage/id=" %}
+        {% set rid=sr.id %}
+        <a href={{strAdd(roomURL,rid)}}><div class="smallStreamWindow">
+            <img src="" class="streamWindowImg">
+            <div class="streamTitle"><span>{{sr.title}}</span></div>
+            <div class="streamDesc">
+                <div class="streamRoomUserName"><span>{{sr.anchorname}}</span></div>
+                <div class="streamRoomCategory"><span>{{sr.category}}</span></div>
+            </div>
+        </div></a>
+        {% end %}
+    </div> -->
 
 
     

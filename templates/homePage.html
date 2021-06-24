@@ -88,6 +88,10 @@
         color: white;
         font-size: 15px;
     }
+    div.homeCategoryPage img.smallDescImg{
+        height: 150px;
+        width: 200px;
+    }
     
 </style>
 
@@ -115,7 +119,15 @@
             <a href="allSteamRoomPage.html" class="navigatorHref"><span>直播</span></a>
             {% end %}
         </div>
-        <div class="navigatorWordDiv"><a href="homePage.html" class="navigatorHref"><span>分类</span></a></div>
+        <div class="navigatorWordDiv">
+            {% try %}
+            {% if usrName %}
+                <a href={{strAdd("allCategoryPageusername=",usrName)}} class="navigatorHref"><span>分类</span></a>
+            {% end %}
+            {% except %}
+                <a href="allCategoryPage.html" class="navigatorHref"><span>分类</span></a>
+            {% end %}
+        </div>
         <div class="navigatorSearchBarDiv">
             <form action="post">
                 <input name="searchBarTextBox" class="searchBarTextBox" placeholder="why">
@@ -145,32 +157,107 @@
     <div class="bigStreamScreenDiv">
         <div class="bigSteamScreenVideoDiv">
             <video id="myVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="1250px" height="500px"  data-setup='{}'>
-            <source id="source" type="application/x-mpegURL" src="http://192.168.20.128:8000/hls1/test.m3u8" >
+            <source id="source" type="application/x-mpegURL" src="http://10.40.23.175:8000/hls1/77777.m3u8" >
             </video>
         </div>
     </div>
     <!-- 分类的模块 -->
-    <div class="homeCategoryPage">      
-        <a href="#nowhere"><div class="smallCategory">
+    <div class="homeCategoryPage">  
+        {% try %}
+        {% if usrName %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="2" %}
+            {% set beforeUserName="username=" %}
+            <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><div class="smallCategory">
             <div class="smallDesc">理科天地</div>
-            <img src="" class="smallDescImg">
-        </div></a>
-        <a href="#nowhere"><div class="smallCategory">
+            <img src="../static/app/image/categoryPictures/2.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        {% except %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="2" %}
+            <a href={{strAdd(roomURL,cid)}}><div class="smallCategory">
+            <div class="smallDesc">理科天地</div>
+            <img src="../static/app/image/categoryPictures/2.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+
+        {% try %}
+        {% if usrName %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="3" %}
+            {% set beforeUserName="username=" %}
+            <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><div class="smallCategory">
             <div class="smallDesc">咬文嚼字</div>
-            <img src="" class="smallDescImg">
-        </div></a>
-        <a href="#nowhere"><div class="smallCategory">
+            <img src="../static/app/image/categoryPictures/3.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        {% except %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="3" %}
+            <a href={{strAdd(roomURL,cid)}}><div class="smallCategory">
+            <div class="smallDesc">咬文嚼字</div>
+            <img src="../static/app/image/categoryPictures/3.png" class="smallDescImg">
+            </div></a>
+        {% end %} 
+        
+        {% try %}
+        {% if usrName %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="4" %}
+            {% set beforeUserName="username=" %}
+            <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><div class="smallCategory">
             <div class="smallDesc">社科知识</div>
-            <img src="" class="smallDescImg">
-        </div></a>
-        <a href="#nowhere"><div class="smallCategory">
+            <img src="../static/app/image/categoryPictures/4.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        {% except %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="4" %}
+            <a href={{strAdd(roomURL,cid)}}><div class="smallCategory">
+            <div class="smallDesc">社科知识</div>
+            <img src="../static/app/image/categoryPictures/4.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        
+        {% try %}
+        {% if usrName %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="5" %}
+            {% set beforeUserName="username=" %}
+            <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><div class="smallCategory">
             <div class="smallDesc">工科之地</div>
-            <img src="" class="smallDescImg">
-        </div></a>
-        <a href="#nowhere"><div class="smallCategory">
+            <img src="../static/app/image/categoryPictures/5.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        {% except %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="5" %}
+            <a href={{strAdd(roomURL,cid)}}><div class="smallCategory">
+            <div class="smallDesc">工科之地</div>
+            <img src="../static/app/image/categoryPictures/5.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        
+        {% try %}
+        {% if usrName %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="6" %}
+            {% set beforeUserName="username=" %}
+            <a href={{strAdd4(roomURL,cid,beforeUserName,usrName)}}><div class="smallCategory">
             <div class="smallDesc">百科全书</div>
-            <img src="" class="smallDescImg">
-        </div></a>
+            <img src="../static/app/image/categoryPictures/6.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        {% except %}
+            {% set roomURL="categorySRPageCid=" %}
+            {% set cid="6" %}
+            <a href={{strAdd(roomURL,cid)}}><div class="smallCategory">
+            <div class="smallDesc">百科全书</div>
+            <img src="../static/app/image/categoryPictures/6.png" class="smallDescImg">
+            </div></a>
+        {% end %}
+        
     </div>
     <!-- 版权的模块 -->
     <div class="copyRightDiv">

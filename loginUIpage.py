@@ -32,6 +32,7 @@ class Ui_MainWindow(object):
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setGeometry(QtCore.QRect(180, 80, 113, 20))
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.Password)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 428, 22))
