@@ -77,7 +77,7 @@ class Example(QMainWindow):
     def startPushStream(self,camera,audio):
         firstPartFfmpeg ='ffmpeg -thread_queue_size 256 -f gdigrab -i desktop -f dshow -i audio="'
         secondPartFfmpeg = '" -f dshow -i video="'
-        thirdPartFfmpeg = '" -filter_complex "[2]scale=iw/3:ih/3[pip];[0][pip]overlay=0:main_h-overlay_h" -vcodec libx264 -b:v 800k -r:v 25 -preset ultrafast -acodec aac -f flv rtmp://10.40.23.175:1935/hls1/'
+        thirdPartFfmpeg = '" -filter_complex "[2]scale=iw/3:ih/3[pip];[0][pip]overlay=0:main_h-overlay_h" -vcodec libx264 -b:v 800k -r:v 25 -preset ultrafast -acodec aac -f flv rtmp://10.70.84.174:1935/hls1/'
         fourthPartFfmpeg=self.id
         # print(firstPartFfmpeg+audio+secondPartFfmpeg +camera+thirdPartFfmpeg+str(fourthPartFfmpeg))
         p = subprocess.Popen(firstPartFfmpeg+audio+secondPartFfmpeg+camera+thirdPartFfmpeg+str(fourthPartFfmpeg), shell=True, stdin=subprocess.PIPE)

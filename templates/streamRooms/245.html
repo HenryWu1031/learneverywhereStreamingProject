@@ -387,7 +387,7 @@
             </div>
             <div class="streamRoomVideoDiv">
                 <video id="myVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="550px" height="420px"  data-setup='{}'>
-                    {% set one="http://10.40.23.175:8000/hls1/" %}
+                    {% set one="http://10.70.84.174:8000/hls1/" %}
                     {% set three=".m3u8" %}
                 <source id="source" type="application/x-mpegURL" src={{strAddThree(one,id,three)}} >
                 </video>
@@ -422,7 +422,7 @@
         window.WebSocket=window.MozWebSocket;
     }
     if(window.WebSocket){
-        var firstURLpart="ws://10.40.21.121:8000/chat";
+        var firstURLpart="ws://10.70.122.66:8000/chat";
         var element=document.getElementById('room');
         var element2=document.getElementById('username');
         var secondURLpart=element.value;
